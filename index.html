@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="لاكاسا مول غزة - ماركت ومطاعم وألعاب في مبنى واحد بالسرايا">
+<title>لاكاسا مول غزة</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;700;800;900&family=Reem+Kufi:wght@500;700&display=swap">
+<style>
+/* Layout: a black stage in the mall's own yellow — poster hero with a spinning logo sticker, price ticker, inverted shelf tags, an elevator panel for the 3 floors, giant phone numbers to close */
+:root{
+  --ink:#0d0c08;
+  --ink-2:#1a1810;
+  --ink-3:#2a2719;
+  --yellow:#fcdb04;
+  --yellow-soft:#fff3a6;
+  --paper:#fbf8ea;
+  --mute:#a9a284;
+  --red:#ff4b3a;
+  --pink:#ff5c9a;
+  --display:"Alexandria","Segoe UI",Tahoma,sans-serif;
+  --label:"Reem Kufi","Alexandria",Tahoma,sans-serif;
+  --r:22px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--display);font-weight:400;font-size:16px;line-height:1.75;direction:rtl;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.15;text-wrap:balance}
+h2{font-size:clamp(34px,5.6vw,68px);font-weight:900;letter-spacing:-.01em}
+.label{font-family:var(--label);font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--yellow);display:inline-flex;align-items:center;gap:8px}
+.label::before{content:"";width:22px;height:3px;background:currentColor;border-radius:3px}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+section{padding-block:88px}
+@media (max-width:700px){section{padding-block:60px}}
+
+/* preview credit */
+.credit{background:var(--yellow);color:var(--ink);font-size:13px;font-weight:500}
+.credit .wrap{display:flex;flex-wrap:wrap;gap:4px 16px;justify-content:space-between;padding-block:7px}
+.credit a{font-weight:800}
+
+/* floating nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--ink)}
+.navbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:15;margin-top:12px}
+.navbar .bar{display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--ink-2) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--ink-3);border-radius:999px;padding:6px 6px 6px 8px}
+.navbar img{width:42px;height:42px;border-radius:50%;display:block}
+.navbar .nm{font-weight:800;font-size:15px;line-height:1.1}
+.navbar .nm small{display:block;font-weight:400;color:var(--mute);font-size:11px}
+.navbar nav{display:flex;gap:2px;margin-inline-start:auto}
+.navbar nav a{text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px;color:var(--paper)}
+.navbar nav a:hover{background:var(--ink-3)}
+.navbar .go{background:var(--yellow);color:var(--ink);font-weight:800;text-decoration:none;padding:10px 18px;border-radius:999px;font-size:14px;white-space:nowrap}
+@media (max-width:860px){.navbar nav{display:none}.navbar .go{margin-inline-start:auto}}
+
+/* hero */
+.hero{padding-block:56px 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(52px,10vw,132px);font-weight:900;line-height:.98;letter-spacing:-.02em}
+.hero h1 .y{color:var(--yellow)}
+.hero h1 .o{-webkit-text-stroke:2px var(--paper);color:transparent}
+.hero p.sub{font-size:clamp(17px,1.6vw,20px);font-weight:300;color:color-mix(in srgb,var(--paper) 82%,transparent);max-width:44ch;margin:24px 0 0}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:800 16px var(--display);padding:14px 24px;border-radius:999px;text-decoration:none;cursor:pointer;border:2px solid var(--paper);background:transparent;color:var(--paper)}
+.btn.y{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn .arr{display:inline-block;transition:transform .2s}
+.btn:hover .arr{transform:translateX(-4px)}
+.sticker-zone{position:relative;aspect-ratio:1/1;max-width:440px;width:100%;margin-inline:auto}
+.ring{position:absolute;inset:0;animation:spin 26s linear infinite}
+.ring text{font-family:var(--label);font-weight:700;font-size:15.5px;letter-spacing:2px;fill:var(--yellow)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.logo-disc{position:absolute;inset:15%;border-radius:50%;overflow:hidden;box-shadow:0 0 0 10px var(--ink),0 0 0 12px var(--yellow),0 30px 80px -20px rgba(252,219,4,.45)}
+.logo-disc img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:auto}
+.pin{position:absolute;background:var(--paper);color:var(--ink);border-radius:16px;padding:10px 14px;font-weight:800;line-height:1.2;box-shadow:0 14px 30px -12px rgba(0,0,0,.6)}
+.pin small{display:block;font-weight:500;font-size:12px;color:#55503a}
+.pin b{font-size:26px;font-weight:900}
+.pin.a{top:2%;left:-2%;transform:rotate(-8deg)}
+.pin.b{bottom:4%;right:-4%;transform:rotate(6deg);background:var(--red);color:#fff}
+.pin.b small{color:#ffe2dd}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.sticker-zone{max-width:320px}}
+@media (max-width:420px){.pin.a{left:0}.pin.b{right:0}}
+
+/* ticker */
+.ticker{margin-top:72px;background:var(--yellow);color:var(--ink);transform:rotate(-1.6deg);margin-inline:-20px;border-block:3px solid var(--ink);overflow:hidden}
+.track{display:flex;width:max-content;animation:tick 40s linear infinite}
+.track span{font-weight:800;font-size:20px;padding:14px 26px;white-space:nowrap;display:inline-flex;gap:10px;align-items:center}
+.track span::after{content:"✦";margin-inline-start:26px;font-size:14px}
+@keyframes tick{to{transform:translateX(50%)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring,.track{animation:none}*{transition:none!important}}
+
+/* offers */
+.offers{background:var(--yellow);color:var(--ink);margin-top:-14px;padding-top:110px}
+.offers .label{color:var(--ink)}
+.offers-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:end;margin-bottom:32px}
+.offers-top p{max-width:52ch;margin:10px 0 0;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:700 14px var(--display);padding:8px 16px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--yellow)}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.tag{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:20px;display:grid;grid-template-rows:auto 1fr auto;gap:14px;position:relative;min-height:230px}
+.tag.hero-offer{grid-column:span 2;background:var(--ink-2);min-height:230px}
+@media (max-width:620px){.tag.hero-offer{grid-column:auto}}
+.tag .cat{font-family:var(--label);font-size:13px;font-weight:700;color:var(--yellow)}
+.tag h3{font-size:20px;font-weight:700;line-height:1.35;margin-top:4px}
+.tag.hero-offer h3{font-size:clamp(24px,3vw,32px);font-weight:800}
+.tag .unit{font-size:13px;color:var(--mute)}
+.tag .price{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.tag .price strong{font-size:56px;font-weight:900;line-height:.9;color:var(--yellow);letter-spacing:-.02em}
+.tag.hero-offer .price strong{font-size:84px}
+.tag .price strong i{font-style:normal;font-size:.45em;font-weight:700;margin-inline-end:4px}
+.tag .price s{color:var(--mute);font-size:18px}
+.tag .save{position:absolute;top:16px;left:16px;background:var(--red);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;transform:rotate(-4deg)}
+.tag .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px dashed var(--ink-3);padding-top:12px}
+.tag .when{font-size:12px;color:var(--mute)}
+.add{font:800 14px var(--display);border:0;background:var(--yellow);color:var(--ink);width:44px;height:44px;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:22px;line-height:1;flex:none}
+.add[aria-pressed="true"]{background:var(--paper)}
+.note{font-size:13px;margin-top:18px;font-weight:500;opacity:.8}
+
+/* basket */
+.basket{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:14;width:min(350px,calc(100vw - 32px));background:var(--paper);color:var(--ink);border-radius:24px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+.basket summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 12px 12px 18px;font-weight:800}
+.basket summary::-webkit-details-marker{display:none}
+.basket .count{background:var(--ink);color:var(--yellow);border-radius:999px;min-width:34px;height:34px;display:grid;place-items:center;padding-inline:8px}
+.basket .inner{padding:0 18px 18px}
+.basket ol{margin:0 0 10px;padding-inline-start:20px;max-height:190px;overflow:auto;font-size:14px}
+.basket .tot{display:flex;justify-content:space-between;font-weight:800;border-top:1px dashed #cfc7a2;padding-top:10px;margin-bottom:12px}
+.basket .row{display:flex;gap:8px;flex-wrap:wrap}
+.basket .row .btn{padding:10px 16px;font-size:14px;border-color:var(--ink);color:var(--ink)}
+.basket .row .btn.y{background:var(--ink);color:var(--yellow)}
+.basket .empty{font-size:14px;color:#55503a;margin:0 0 12px}
+
+/* elevator */
+.elev{display:grid;grid-template-columns:200px 1fr;gap:28px;margin-top:40px;align-items:stretch}
+.panel{background:linear-gradient(160deg,#3a3626,#16140d);border:1px solid #4a4530;border-radius:28px;padding:22px 18px;display:grid;gap:16px;justify-items:center;align-content:start;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.screen{width:100%;background:#050402;border-radius:12px;padding:10px;text-align:center;font-family:var(--label);color:var(--red);font-size:30px;font-weight:700;letter-spacing:4px;line-height:1.1;box-shadow:inset 0 0 12px rgba(255,75,58,.25)}
+.screen small{display:block;font-size:11px;letter-spacing:1px;color:#ff9b90}
+.fbtn{width:74px;height:74px;border-radius:50%;border:3px solid #6d6649;background:radial-gradient(circle at 40% 35%,#4a4532,#1c1a12);color:var(--paper);font:900 24px var(--display);cursor:pointer;display:grid;place-items:center;line-height:1}
+.fbtn small{display:block;font-size:10px;font-weight:500;color:var(--mute)}
+.fbtn[aria-pressed="true"]{border-color:var(--yellow);color:var(--yellow);box-shadow:0 0 0 4px rgba(252,219,4,.18),0 0 24px rgba(252,219,4,.45)}
+.floor-view{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:28px;padding:clamp(22px,4vw,44px);display:grid;gap:18px;align-content:start;min-width:0}
+.floor-view .lvl{font-family:var(--label);color:var(--yellow);font-weight:700}
+.floor-view h3{font-size:clamp(36px,5vw,60px);font-weight:900}
+.floor-view p{margin:0;font-size:17px;font-weight:300;max-width:56ch;color:color-mix(in srgb,var(--paper) 86%,transparent)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:14px;font-weight:500;border:1px solid #4a4530;border-radius:999px;padding:6px 14px}
+.pill.hot{background:var(--pink);border-color:var(--pink);color:#fff;font-weight:700}
+.floor-view .tel{display:flex;gap:10px;align-items:center;font-weight:700;color:var(--yellow);font-size:18px}
+.fade{animation:fade .35s ease}
+@keyframes fade{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:760px){.elev{grid-template-columns:1fr}.panel{grid-template-columns:1fr repeat(3,auto);align-items:center;justify-items:stretch;padding:14px;border-radius:22px}.screen{font-size:22px}.fbtn{width:58px;height:58px;font-size:20px}}
+
+/* order ways */
+.ways{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;margin-top:40px}
+.way{border:1px solid var(--ink-3);border-radius:var(--r);padding:28px;display:grid;gap:12px;align-content:start;background:var(--ink-2)}
+.way.main{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.way .k{font-family:var(--label);font-weight:700;font-size:13px;color:var(--yellow)}
+.way.main .k{color:#7a6b00}
+.way h3{font-size:24px;font-weight:800}
+.way .mega{font-size:clamp(72px,11vw,128px);font-weight:900;line-height:.9;letter-spacing:-.03em}
+.way p,.way ul{margin:0;font-weight:300}
+.way ul{padding-inline-start:18px;display:grid;gap:4px}
+.code{display:inline-block;font:800 16px ui-monospace,Menlo,monospace;color:var(--yellow);border:2px dashed var(--yellow);padding:4px 12px;border-radius:10px;letter-spacing:.12em}
+@media (max-width:900px){.ways{grid-template-columns:1fr}}
+
+/* departments as type */
+.aisles{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:36px;font-weight:800;font-size:clamp(22px,3.6vw,42px);line-height:1.3}
+.aisles span{display:inline-flex;align-items:center;gap:14px}
+.aisles span:nth-child(3n+1){color:var(--yellow)}
+.aisles span:nth-child(3n+2){-webkit-text-stroke:1.5px var(--paper);color:transparent}
+.aisles span::after{content:"/";color:var(--ink-3);font-weight:300}
+.aisles span:last-child::after{content:none}
+
+/* community */
+.feed{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
+.story{display:grid;gap:8px;align-content:start}
+.story .k{font-family:var(--label);font-size:13px;font-weight:700;color:var(--yellow)}
+.story h3{font-size:20px;font-weight:700}
+.story p{margin:0;font-weight:300;color:color-mix(in srgb,var(--paper) 75%,transparent)}
+
+/* contact */
+.contact{background:var(--yellow);color:var(--ink);border-radius:36px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:1fr 1.1fr;gap:32px;margin-top:8px}
+.contact .label{color:var(--ink)}
+.contact .addr{font-size:clamp(30px,4.4vw,52px);font-weight:900;line-height:1.1;margin-top:12px}
+.contact p{margin:14px 0 0;font-weight:500}
+.lines{display:grid;gap:10px}
+.line{display:flex;align-items:center;gap:14px;justify-content:space-between;border-bottom:2px solid var(--ink);padding-block:10px;flex-wrap:wrap}
+.line b{display:block;font-size:15px}
+.line span.s{font-size:13px;font-weight:500}
+.line .n{font-size:clamp(24px,3.2vw,36px);font-weight:900}
+.copy{font:800 13px var(--display);border:2px solid var(--ink);background:transparent;color:var(--ink);padding:6px 14px;border-radius:999px;cursor:pointer}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.socials a{background:var(--ink);color:var(--yellow);text-decoration:none;font-weight:800;padding:10px 18px;border-radius:999px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:40px 110px;color:var(--mute);font-size:14px}
+footer img{width:36px;height:36px;border-radius:50%;vertical-align:middle;margin-inline-end:10px}
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="icon" href="data:image/jpeg;base64,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">
+</head>
+<body>
+
+
+<div class="credit"><div class="wrap">
+  <span>نسخة معاينة مقترحة لموقع لاكاسا مول · المحتوى والأسعار من حسابات المول على إنستغرام</span>
+  <span>تصميم وتطوير م. عبد الرحمن البطة · <a href="https://albatta.vercel.app" target="_blank" rel="noopener">albatta.vercel.app</a></span>
+</div></div>
+
+<div class="navbar wrap"><div class="bar">
+  <img src="data:image/jpeg;base64,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" alt="شعار لاكاسا مول">
+  <div class="nm">لاكاسا مول<small>غزة · السرايا</small></div>
+  <nav aria-label="أقسام الصفحة">
+    <a href="#offers">العروض</a><a href="#floors">الطوابق</a><a href="#order-ways">الطلب والتوصيل</a><a href="#visit">التواصل</a>
+  </nav>
+  <a class="go" href="#order-ways">اطلب <span class="num">#919</span></a>
+</div></div>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label">ماركت · مطاعم · ألعاب</span>
+      <h1 style="margin-top:14px">السوق كله<br><span class="y">بمبنى</span> <span class="o">واحد</span></h1>
+      <p class="sub">في السرايا، مقابل برج الظافر 9. تسوقوا أغراض البيت، تغدّوا في District One، وخلّوا الصغار يلعبوا في Pooh Zone. وإذا ما عندكم وقت، الطلب بمكالمة.</p>
+      <div class="ctas">
+        <a class="btn y" href="#offers">عروض هذا الأسبوع <span class="arr">←</span></a>
+        <a class="btn" href="#floors">جولة في الطوابق</a>
+      </div>
+    </div>
+    <div class="sticker-zone" aria-hidden="true">
+      <svg class="ring" viewBox="0 0 400 400"><defs><path id="circ" d="M200,200 m-185,0 a185,185 0 1,1 370,0 a185,185 0 1,1 -370,0"/></defs><text><textPath href="#circ">لاكاسا مول · وجهة الفخامة · ننتقي الجودة · السرايا · غزة · لاكاسا مول · وجهة الفخامة · ننتقي الجودة ·</textPath></text></svg>
+      <div class="logo-disc"><img src="data:image/jpeg;base64,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" alt=""></div>
+      <div class="pin a"><small>6 دجاجات</small><b class="num">₪100</b></div>
+      <div class="pin b"><small>ضاني مبرد · كيلو</small><b class="num">₪50</b></div>
+    </div>
+  </div>
+  <div class="ticker" aria-label="عروض مختارة"><div class="track" id="track"></div></div>
+</section>
+
+<section class="offers" id="offers"><div class="wrap">
+  <div class="offers-top">
+    <div>
+      <span class="label">عروض الخميس والجمعة</span>
+      <h2 style="margin-top:10px">أسعار الرف</h2>
+      <p>اضغطوا <b>+</b> على اللي بدكم إياه، وابعتوا القائمة جاهزة على واتساب، أو اقرأوها على <span class="num">#919</span>.</p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="تصفية حسب القسم"></div>
+  </div>
+  <div class="shelf" id="shelf"></div>
+  <p class="note">الأسعار من منشورات المول وقد تتغير. في النسخة النهائية يحدّثها فريق المول من لوحة تحكم.</p>
+</div></section>
+
+<section id="floors"><div class="wrap">
+  <span class="label">جولة في المبنى</span>
+  <h2 style="margin-top:10px">اختار الطابق</h2>
+  <div class="elev">
+    <div class="panel" role="group" aria-label="أزرار الطوابق">
+      <div class="screen" aria-live="polite"><span id="scr" class="num">▲ 3</span><small id="scrName">POOH ZONE</small></div>
+      <button class="fbtn" data-f="3" type="button">3<small>ألعاب</small></button>
+      <button class="fbtn" data-f="2" type="button">2<small>مطاعم</small></button>
+      <button class="fbtn" data-f="M" type="button">M<small>ماركت</small></button>
+    </div>
+    <div class="floor-view" id="floorView"></div>
+  </div>
+</div></section>
+
+<section id="order-ways" style="padding-top:0"><div class="wrap">
+  <span class="label">الطلب والتوصيل</span>
+  <h2 style="margin-top:10px">ولا تطلعوا من البيت</h2>
+  <div class="ways">
+    <div class="way main">
+      <span class="k">الرقم المختصر</span>
+      <div class="mega num">#919</div>
+      <p>أو اتصلوا على <b class="num">0593500083</b>. احكوا القائمة، والفريق يجهزها لكم.</p>
+    </div>
+    <div class="way">
+      <span class="k">لباب البيت</span>
+      <h3>تطبيق سنبل</h3>
+      <ul>
+        <li>لاكاسا موجود في قسم الماركت.</li>
+        <li>موظف ينقي الخضار والفواكه حبة حبة.</li>
+        <li>توصيل مجاني للأماكن القريبة من <span class="num">₪80</span>.</li>
+      </ul>
+      <p>كود الخصم <span class="code">MARKET</span></p>
+    </div>
+    <div class="way">
+      <span class="k">للمشاريع</span>
+      <h3>جملة ومفرق</h3>
+      <p>للكافيهات والمطاعم والمشاريع البيتية: حشوات لاروش بخمس نكهات، زبدة الطبخ، ومواد الحلويات والمخبوزات.</p>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <span class="label">الأقسام</span>
+  <div class="aisles">
+    <span>خضار وفواكه</span><span>لحوم ودواجن</span><span>أسماك وجمبري</span><span>أجبان</span><span>عسل ألماني</span><span>مكسرات</span><span>عصائر</span><span>شوكولاتة وسناكس</span><span>قهوة</span><span>منظفات</span><span>Glow Cosmetics</span><span>أدوات منزلية</span><span>هدايا وورد</span><span>مستلزمات الأطفال</span>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <span class="label">من المول</span>
+  <h2 style="margin-top:10px">أكثر من تسوّق</h2>
+  <div class="feed">
+    <div class="story"><span class="k">أكتوبر الوردي</span><h3>حملة الكشف المبكر عن سرطان الثدي</h3><p>حملة توعية داخل المول بالتعاون مع وزارة الصحة.</p></div>
+    <div class="story"><span class="k">فعاليات</span><h3>الكلاسيكو على الشاشة الكبيرة</h3><p>مشاهدة جماعية للمباريات في Pooh Zone بحجز مسبق.</p></div>
+    <div class="story"><span class="k">مسابقات</span><h3>تذكرة دخول مدى الحياة</h3><p>سحوبات وجوائز للأطفال بالتعاون مع جوال.</p></div>
+    <div class="story"><span class="k">فريقنا</span><h3>تكريم الموظفين المميزين</h3><p>تقدير لعطاء الفريق اللي يخدمكم كل يوم.</p></div>
+  </div>
+</div></section>
+
+<section id="visit" style="padding-top:0"><div class="wrap">
+  <div class="contact">
+    <div>
+      <span class="label">زورونا</span>
+      <div class="addr">غزة · السرايا<br>مقابل برج الظافر 9</div>
+      <p>في النسخة النهائية: خريطة، ساعات الدوام، ونموذج طلب توصيل.</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/lacasamallpal/" target="_blank" rel="noopener">إنستغرام</a>
+        <a href="https://www.instagram.com/poohzonepal/" target="_blank" rel="noopener">Pooh Zone</a>
+        <a href="https://www.instagram.com/district1ps/" target="_blank" rel="noopener">District One</a>
+      </div>
+    </div>
+    <div class="lines">
+      <div class="line"><div><b>الماركت والطلبات</b><span class="s">أو #919</span></div><span class="n num">0593500083</span><button class="copy" type="button" data-copy="0593500083">نسخ</button></div>
+      <div class="line"><div><b>Pooh Zone</b><span class="s">حجوزات الأطفال والفعاليات</span></div><span class="n num">0593842727</span><button class="copy" type="button" data-copy="0593842727">نسخ</button></div>
+      <div class="line"><div><b>District One</b><span class="s">المطاعم والمؤسسات</span></div><span class="n num">0597652784</span><button class="copy" type="button" data-copy="0597652784">نسخ</button></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span><img src="data:image/jpeg;base64,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" alt="">لاكاسا مول · وجهة الفخامة.. لنمط حياة استثنائي</span>
+  <span>معاينة · م. عبد الرحمن البطة</span>
+</div></footer>
+
+<details class="basket" id="basket">
+  <summary><span>قائمة الطلب</span><span class="count num" id="cnt">0</span></summary>
+  <div class="inner">
+    <ol id="list"></ol>
+    <p class="empty" id="empty">اضغطوا + على أي عرض ليظهر هنا.</p>
+    <div class="tot" id="tot"><span>المجموع التقريبي</span><span class="num" id="totV">₪0</span></div>
+    <div class="row">
+      <a class="btn y" id="wa" href="#" target="_blank" rel="noopener">أرسل على واتساب</a>
+      <button class="btn" id="cp" type="button">انسخ القائمة</button>
+    </div>
+  </div>
+</details>
+
+<script>
+const offers=[
+ {c:"لحوم ودواجن",n:"لحم ضاني مبرد",u:"الكيلو",p:50,o:80,w:"الخميس والجمعة",big:1},
+ {c:"لحوم ودواجن",n:"6 دجاجات طازجة",u:"العرض كامل",p:100},
+ {c:"لحوم ودواجن",n:"فخذ حبش",u:"الكيلو",p:28,o:33},
+ {c:"لحوم ودواجن",n:"لحمة فيليه صافية",u:"الكيلو",p:48},
+ {c:"أسماك",n:"سمك دنيس وشبار",u:"الكيلو",p:16},
+ {c:"خضار وفواكه",n:"جميع أصناف الفاكهة",u:"الكيلو",p:10},
+ {c:"خضار وفواكه",n:"تمر العنقود",u:"كرتونة 5 كيلو",p:90},
+ {c:"مواد غذائية",n:"زيت زيتون بكر ممتاز",u:"2 لتر",p:44,big:1},
+ {c:"مواد غذائية",n:"زيت سيرج",u:"لتر",p:8},
+ {c:"مواد غذائية",n:"فول معلب",u:"5 علب",p:10},
+ {c:"مواد غذائية",n:"بن الحموي",u:"العبوة",p:18},
+ {c:"مواد غذائية",n:"نسكافيه جولد",u:"العبوة",p:23},
+ {c:"حلويات وسناكس",n:"نوتيلا",u:"900 غرام",p:22},
+ {c:"حلويات وسناكس",n:"علبة رولانا",u:"العلبة",p:20,o:30},
+ {c:"حلويات وسناكس",n:"برينجلز",u:"2 علبة",p:15,w:"عروض الخميس"},
+ {c:"مشروبات",n:"كولا كريستال",u:"2 لتر",p:4.5},
+ {c:"عناية ومنظفات",n:"شامبو هواي",u:"العبوة",p:10,o:14},
+ {c:"عناية ومنظفات",n:"شامبو دوف الأصلي",u:"العبوة",p:10},
+ {c:"عناية ومنظفات",n:"سائل جلي + محارم معطرة",u:"4 قطع",p:10},
+ {c:"عناية ومنظفات",n:"ورق محارم زينة",u:"3 رولات",p:10,w:"الخميس والجمعة"}
+];
+const floors={
+ "3":{lvl:"الطابق الثالث",name:"Pooh Zone",scr:"POOH ZONE",d:"عالم لعب ومغامرة للأطفال: زحليقات، مهرجون ورسم على الوجوه، وسينما بشاشة كبيرة. وفيه لعبة محاكاة سباق السيارات الوحيدة في قطاع غزة.",pills:[["يوم الصبايا · الثلاثاء 10ص–6م · ₪20",1],["سينما"],["محاكي سيارات"],["Cake Boss · كيك وقهوة"],["رحلات مدارس ومؤسسات"]],tel:"0593842727",tl:"للحجز"},
+ "2":{lvl:"الطابق الثاني",name:"District One",scr:"DISTRICT 1",d:"أربع تجارب أكل مختلفة في مكان واحد، تقدروا تاكلوا بالمطعم أو تطلعوا للطابق الثالث مع الصغار. وفيه ضيافة وتوريد غذائي واستضافة فعاليات للمؤسسات.",pills:[["Sandwich Hub"],["Birds&Buns"],["Pizza Room"],["Mazaj"]],tel:"0597652784",tl:"للاستفسار"},
+ "M":{lvl:"الماركت",name:"لاكاسا ماركت",scr:"MARKET",d:"خضار وفواكه، لحوم وأسماك، أجبان، عسل ومكسرات، منظفات وكوزماتكس، أدوات منزلية، وقسم هدايا وورد بتغليف فاخر.",pills:[["عروض الخميس والجمعة",1],["طلب هاتفي #919"],["توصيل عبر سنبل"]],tel:"0593500083",tl:"للطلبات"}
+};
+const fmt=v=>"₪"+(Number.isInteger(v)?v:v.toFixed(1));
+const esc=s=>s.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+
+// ticker
+const tk=offers.filter(o=>o.o||o.p<=10).slice(0,9).map(o=>`<span>${esc(o.n)} <b class="num">${fmt(o.p)}</b></span>`).join("");
+document.getElementById("track").innerHTML=tk+tk;
+
+// offers
+const cats=["الكل",...new Set(offers.map(o=>o.c))];let active="الكل";const picked=new Set();
+const chips=document.getElementById("chips");
+cats.forEach(c=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=c;b.setAttribute("aria-pressed",c===active);b.onclick=()=>{active=c;[...chips.children].forEach(x=>x.setAttribute("aria-pressed",x.textContent===c));renderShelf()};chips.appendChild(b)});
+function renderShelf(){
+  const s=document.getElementById("shelf");s.innerHTML="";
+  offers.forEach((o,i)=>{if(active!=="الكل"&&o.c!==active)return;
+    const a=document.createElement("article");a.className="tag"+(o.big&&active==="الكل"?" hero-offer":"");
+    const [whole,dec]=String(o.p).split(".");
+    a.innerHTML=`${o.o?`<span class="save">وفّر ${fmt(o.o-o.p)}</span>`:""}
+      <div><div class="cat">${o.c}</div><h3>${esc(o.n)}</h3><div class="unit">${o.u}</div></div>
+      <div class="price"><strong class="num"><i>₪</i>${whole}${dec?"."+dec:""}</strong>${o.o?`<s class="num">${fmt(o.o)}</s>`:""}</div>
+      <div class="foot"><span class="when">${o.w||"لفترة محدودة"}</span><button class="add" type="button" aria-label="${picked.has(i)?"إزالة":"إضافة"} ${esc(o.n)}" aria-pressed="${picked.has(i)}">${picked.has(i)?"✓":"+"}</button></div>`;
+    a.querySelector(".add").onclick=()=>{picked.has(i)?picked.delete(i):picked.add(i);renderShelf();renderBasket()};
+    s.appendChild(a);});
+}
+function orderText(){return "مرحباً لاكاسا مول، بدي أطلب:\n"+[...picked].map(i=>"- "+offers[i].n+" ("+offers[i].u+") "+fmt(offers[i].p)).join("\n")}
+function renderBasket(){
+  const l=document.getElementById("list");l.innerHTML="";
+  [...picked].forEach(i=>{const li=document.createElement("li");li.textContent=offers[i].n+" · "+fmt(offers[i].p);l.appendChild(li)});
+  const t=[...picked].reduce((s,i)=>s+offers[i].p,0);
+  document.getElementById("cnt").textContent=picked.size;
+  document.getElementById("empty").hidden=picked.size>0;
+  document.getElementById("tot").hidden=picked.size===0;
+  document.getElementById("totV").textContent=fmt(t);
+  document.getElementById("wa").href="https://wa.me/972593500083?text="+encodeURIComponent(orderText());
+}
+
+// elevator
+const view=document.getElementById("floorView");
+function goFloor(f){
+  const d=floors[f];
+  document.querySelectorAll(".fbtn").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));
+  document.getElementById("scr").textContent=(f==="M"?"▼ M":"▲ "+f);
+  document.getElementById("scrName").textContent=d.scr;
+  view.innerHTML=`<span class="lvl">${d.lvl}</span><h3>${esc(d.name)}</h3><p>${d.d}</p><div class="pills">${d.pills.map(p=>`<span class="pill${p[1]?" hot":""}">${esc(p[0])}</span>`).join("")}</div><div class="tel">${d.tl}: <span class="num">${d.tel}</span></div>`;
+  view.classList.remove("fade");void view.offsetWidth;view.classList.add("fade");
+}
+document.querySelectorAll(".fbtn").forEach(b=>b.onclick=()=>goFloor(b.dataset.f));
+
+async function copyText(t,btn){const old=btn.textContent;try{await navigator.clipboard.writeText(t);btn.textContent="تم النسخ"}catch(e){btn.textContent="انسخ يدوياً"}setTimeout(()=>btn.textContent=old,1600)}
+document.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copyText(b.dataset.copy,b));
+document.getElementById("cp").onclick=e=>copyText(orderText(),e.currentTarget);
+
+[0,7,12].forEach(i=>picked.add(i));
+renderShelf();renderBasket();goFloor("3");
+</script>
+
+</body>
+</html>
